@@ -1,4 +1,4 @@
-public class jogo {
+public class Jogo {
     /*
      * Item encontrado Tipo          Pontuação
      * "OURO"        Tesouro        +10 pontos
@@ -12,8 +12,17 @@ public class jogo {
      * "VAZIO"       Nenhum           0 pontos
      */
 
-    public jogo() {
-        
+    public Jogo() {
+        String[] tipos = {"VAZIO", "OURO", "DIAMANTE","RUBI", "BURADO", "COBRA", "ESPINHOS"};
+        /*tipos[0]= "VAZIO";
+        tipos[1] = "OURO";
+        tipos[2] = "DIAMANTE";*/
+
+        int posicao = (int)(Math.random() * 7);
+        System.out.println(posicao + " " + tipos[posicao]);
+        // return posicao;
+    
+
         int ouro = 10;
         int diamente = 20;
         int rubi = 15;
@@ -26,8 +35,7 @@ public class jogo {
         
         
     }
-
     public static void main(String[] args) {
-        new jogo();
+        new Jogo();
     }
 }
