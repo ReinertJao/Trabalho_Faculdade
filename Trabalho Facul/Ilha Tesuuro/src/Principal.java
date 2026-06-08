@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Principal {
 
     public Principal() {
-        jogo jogo = new jogo();
+        Jogo jogo = new Jogo();
         
         Scanner ler = new Scanner(System.in);
         int ale;
