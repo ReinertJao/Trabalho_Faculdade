@@ -1,3 +1,5 @@
+import javax.sound.midi.MidiDevice.Info;
+
 public class Jogo {
     /*
      * Item encontrado Tipo Pontuação
@@ -13,44 +15,57 @@ public class Jogo {
      */
 
     public Jogo() {
-        
-        sortear();
-        
-        /*
-         * String[] tipos = {"VAZIO", "OURO", "DIAMANTE","RUBI", "BURADO", "COBRA",
-         * "ESPINHOS"};
-         * tipos[0]= "VAZIO";
-         * tipos[1] = "OURO";
-         * tipos[2] = "DIAMANTE";
-         * 
-         * int posicao = (int)(Math.random() * 7);
-         * System.out.println(posicao + " " + tipos[posicao]);
-         * // return posicao;
-         */
+        int ilha[] = new int[15];
 
-        int ouro = 10;
-        int diamente = 20;
-        int rubi = 15;
+        instrucoes();
+        mostrarMapa(ilha);
 
-        int buraco = -5;
-        int cobra = -10;
-        int espinho = -7;
-
-        int vazio = 0;
-        
-        
-        // Vamos fazer por Assim, por que dps não precisa ficamr montando |
     }
     
-        private String sortear() {
-        String[] tipos = {"VAZIO", "OURO", "DIAMANTE","RUBI", "BURADO", "COBRA", "ESPINHOS"};
-        /*tipos[0]= "VAZIO";
-        tipos[1] = "OURO";
-        tipos[2] = "DIAMANTE";*/
+    
+    private void instrucoes(){
+     System.out.println(" Bem-vindo ao Island Pirates! \r\n" + //
+                  "\r\n" + //
+                  "Explore as ilhas em busca de tesouros, mas cuidado com as armadilhas!\r\n" + //
+                  "\r\n" + //
+                  "Você possui 8 tentativas e deve terminar o jogo com pontuação positiva.\r\n" + //
+                  "\r\n" + //
+                  " Tesouros:\r\n" + //
+                  " OURO -> +10 pontos\r\n" + //
+                  " RUBI -> +15 pontos\r\n" + //
+                  " DIAMANTE -> +20 pontos\r\n" + //
+                  "\r\n" + //
+                  " Armadilhas:\r\n" + //
+                  " BURACO -> -5 pontos\r\n" + //
+                  " ESPINHOS -> -7 pontos\r\n" + //
+                  " COBRA -> -10 pontos\r\n" + //
+                  "\r\n" + //
+                  " VAZIO -> 0 pontos\r\n" + //
+                  "\r\n" + //
+                  "Boa sorte, pirata! \r\n" + //
+                  "");   
+    }
+    
 
-        int posicao = (int)(Math.random() * 7);
-        //System.out.println(posicao + " " + tipos[posicao]);
-        return tipos[posicao];
+    // Contar de 0 a 14
+    private void mostrarMapa(int[] ilha) {
+        for (int i = 0; i > ilha.length; i++) {
+            System.out.println(ilha[i] + "?");
+
+        }
+    }
+    
+    private void jogando(){
+        
+    }
+    
+    private void mostrarStatus(){
+        
+    }
+    
+    
+    
+    
 
     public static void main(String[] args) {
         new Jogo();

@@ -18,7 +18,7 @@ public class Principal {
 
         switch (ale) {
             case 1:
-
+                
                 break;
             case 2:
 
