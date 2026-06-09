@@ -1,4 +1,4 @@
-import javax.sound.midi.MidiDevice.Info;
+
 
 public class Jogo {
     /*
@@ -49,8 +49,8 @@ public class Jogo {
 
     // Contar de 0 a 14
     private void mostrarMapa(int[] ilha) {
-        for (int i = 0; i > ilha.length; i++) {
-            System.out.println(ilha[i] + "?");
+        for (int i = 0; i < ilha.length; i++) {
+            System.out.println( i + " ? ");
 
         }
     }
