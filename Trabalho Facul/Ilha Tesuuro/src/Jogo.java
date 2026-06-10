@@ -23,7 +23,7 @@ public class Jogo {
     }
     
     
-    private void instrucoes(){
+    void instrucoes(){
      System.out.println(" Bem-vindo ao Island Pirates! \r\n" + //
                   "\r\n" + //
                   "Explore as ilhas em busca de tesouros, mas cuidado com as armadilhas!\r\n" + //
@@ -67,7 +67,6 @@ public class Jogo {
     
     
 
-    public static void main(String[] args) {
-        new Jogo();
-    }
+    
 }
+
