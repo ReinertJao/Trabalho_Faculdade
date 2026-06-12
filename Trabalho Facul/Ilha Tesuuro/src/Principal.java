@@ -34,6 +34,7 @@ public class Principal {
                 break;
 
             default:
+                System.out.println("Oque você digitou está incorreto, digite uma dasopções informadas");
                 break;
         }
 
