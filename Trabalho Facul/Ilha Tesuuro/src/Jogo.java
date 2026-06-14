@@ -2,22 +2,6 @@
 
 public class Jogo {
     
-    /*int ilha0[] = new int[15];
-    int ilha1[] = new int[15];
-    int ilha2[] = new int[15];
-    int ilha3[] = new int[15];
-    int ilha4[] = new int[15];
-    int ilha5[] = new int[15];
-    int ilha6[] = new int[15];
-    int ilha7[] = new int[15];
-    int ilha8[] = new int[15];
-    int ilha9[] = new int[15];
-    int ilha10[] = new int[15];
-    int ilha11[] = new int[15];
-    int ilha12[] = new int[15];
-    int ilha13[] = new int[15];
-    int ilha014[] = new int[15];*/
-    
     /*
      * Item encontrado Tipo Pontuação
      * "OURO" Tesouro +10 pontos
