@@ -1,5 +1,6 @@
 
 
+
 public class Jogo {
     
     /*
@@ -14,15 +15,13 @@ public class Jogo {
      * 
      * "VAZIO" Nenhum 0 pontos
      */
-
-    public Jogo() {
-        int ilha[] = new int[15];
-
-        instrucoes();
-        mostrarMapa(ilha);
-
-    }
     
+    private String ilha[] = new String[15];
+    private boolean explorador[] = new boolean[15];
+    private int pontuação =0;
+    private int tentativas = 8;
+
+
     
     void instrucoes(){
      System.out.println(" Bem-vindo ao Island Pirates! \r\n" + //
@@ -49,10 +48,15 @@ public class Jogo {
     
 
     // Contar de 0 a 14
-    private void mostrarMapa(int[] ilha) {
+    private void mostrarMapa(int ilha[], boolean explorador[]) {
         for (int i = 0; i < ilha.length; i++) {
-            System.out.println( ilha + " ? ");
-
+            System.out.println( ilha[i] + " ? ");
+            
+            if (explorador[i]) {
+                System.out.println("[" + i + "] Explorado" );
+            } else {
+                System.out.println("[" + i + "] ? ");
+            }
         }
     }
     
@@ -60,7 +64,13 @@ public class Jogo {
         
     }
     
-    private void mostrarStatus(){
+    private void mostrarStatus(int pontuação){
+        System.out.println("Status do Jogo: ");
+        System.out.println("Pontuação " + pontuação +  " pontos");
+        System.out.println("Tentativas restanrtes: ");
+        System.out.println("Tesouros encontrados: ");
+        System.out.println("Armadilhas encontradas: ");
+        System.out.println("Posições vazias exploradas: ");
         
     }
     
