@@ -1,21 +1,23 @@
 import java.util.Scanner;
 
 public class Principal {
-
     public Principal() {
         Jogo jogo = new Jogo();
+        jogo.inicializarIlha();
         Scanner ler = new Scanner(System.in);
         int ale;
 
         do {
+
             System.out.println("╔════════════════════════════╗");
             System.out.println("║     ILHA DOS TESOUROS      ║");
             System.out.println("╚════════════════════════════╝");
-            System.out.println("1 - Mostrar instruções\r\n" + //
-                    "2 - Mostrar mapa\r\n" + //
-                    "3 - Jogar\r\n" + //
-                    "4 - Mostrar status\r\n" + //
-                    "5 - Sair");
+            System.out.println("1 - Mostrar instruções");
+            System.out.println("2 - Mostrar mapa");
+            System.out.println("3 - Jogar");
+            System.out.println("4 - Mostrar status");
+            System.out.println("5 - Sair");
+
             ale = ler.nextInt();
 
             switch (ale) {
@@ -26,40 +28,21 @@ public class Principal {
                     jogo.mostrarMapa();
                     break;
                 case 3:
-                    jogo.inicializarIlha();
+                    jogo.jogar();
                     break;
                 case 4:
-                    jogo.mostrarStatus(ale, ale, ale, ale, ale);
+                    jogo.mostrarStatus();
                     break;
                 case 5:
                     System.out.println("Sistema encerrado.");
                     break;
-
                 default:
-                    System.out.println("Oque você digitou está incorreto, digite uma dasopções informadas");
-                    break;
+                    System.out.println("Opção inválida.");
             }
-
         } while (ale != 5);
-
         ler.close();
     }
-
     public static void main(String[] args) {
         new Principal();
     }
 }
-
-
-/*        Scanner s = new Scanner(System.in);
-        Jogo jogo = new Jogo();
-
-        jogo.inicializarIlha(); // <- essencial!
-        jogo.instrucoes();
-
-        while (jogo.tentativas > 0) {
-            jogo.mostrarMapa();
-            jogo.jogando(Scanner s);
-            jogo.mostrarStatus("...");
-        }
- */
