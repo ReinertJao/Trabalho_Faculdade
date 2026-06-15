@@ -12,7 +12,7 @@ public class Jogo {
      * "BURACO" Armadilha -5 pontos
      * "COBRA" Armadilha -10 pontos
      * "ESPINHOS" Armadilha -7 pontos
-     * 
+     *  
      * "VAZIO" Nenhum 0 pontos
      */    
     
@@ -55,33 +55,72 @@ public class Jogo {
                         "             Boa sorte, pirata!\n" + //
                         "        +======================================+");
 }
-    
-    
     public void inicializarIlha() {
         Random rand = new Random();
         for (int i = 0; i < ilha.length; i++) {
             ilha[i] = itens[rand.nextInt(itens.length)];
         }
     }
-    
-       
     public void mostrarMapa() {
         for (int i = 0; i < ilha.length; i++) {
             if (explorador[i]) {
-                System.out.println("[" + (i + 1) + "] " + ilha[i] );
+                System.out.println("[" + (i + 1) + "] " + ilha[i]);
             } else {
-                System.out.println("[" + (i + 1)+ "] ?");
+                System.out.println("[" + (i + 1) + "] ?");
             }
         }
     }
-    
-    public void mostrarStatus(int pontuacao, int tentativas, int tesourosEncontrados, int armadilhasEncontradas,
-            int vaziosEncontrados) {
-        System.out.println("Status do Jogo: ");
-        System.out.println("Pontuação " + pontuacao + " pontos");
-        System.out.println("Tentativas restanrtes: " + tentativas);
-        System.out.println("Tesouros encontrados: " + tesourosEncontrados);
-        System.out.println("Armadilhas encontradas: " + armadilhasEncontradas);
-        System.out.println("Posições vazias exploradas: " + vaziosEncontrados);
+    public void mostrarStatus() {
+        System.out.println("Pontuação: " + pontuacao);
+        System.out.println("Tentativas: " + tentativas);
+        System.out.println("Tesouros: " + tesourosEncontrados);
+        System.out.println("Armadilhas: " + armadilhasEncontradas);
+        System.out.println("Vazios: " + vaziosEncontrados);
+    }
+    public void jogar() {
+        System.out.print("Escolha uma posição (1 a 15): ");
+        int pos = ler.nextInt() - 1;
+        if (pos < 0 || pos >= ilha.length) {
+            System.out.println("Posição inválida!");
+            return;
+        }
+        if (explorador[pos]) {
+            System.out.println("Posição já explorada!");
+            return;
+        }
+        explorador[pos] = true;
+        tentativas--;
+        String item = ilha[pos];
+
+        switch (item) {
+            case "OURO":
+                pontuacao += 10;
+                tesourosEncontrados++;
+                break;
+            case "DIAMANTE":
+                pontuacao += 20;
+                tesourosEncontrados++;
+                break;
+            case "RUBI":
+                pontuacao += 15;
+                tesourosEncontrados++;
+                break;
+            case "BURACO":
+                pontuacao -= 5;
+                armadilhasEncontradas++;
+                break;
+            case "COBRA":
+                pontuacao -= 10;
+                armadilhasEncontradas++;
+                break;
+            case "ESPINHOS":
+                pontuacao -= 7;
+                armadilhasEncontradas++;
+                break;
+            case "VAZIO":
+                vaziosEncontrados++;
+                break;
+        }
+        System.out.println("Você encontrou: " + item);
     }
 }
