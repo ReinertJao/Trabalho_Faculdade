@@ -14,7 +14,8 @@ public class Jogo {
      * "ESPINHOS" Armadilha -7 pontos
      * 
      * "VAZIO" Nenhum 0 pontos
-     */
+     */    
+    
 
     String[] itens = {"OURO", "DIAMANTE", "RUBI", "BURACO", "COBRA", "ESPINHOS", "VAZIO"};
     String[] ilha = new String[15];
@@ -28,27 +29,33 @@ public class Jogo {
     
     // opção 1 do Swith Case
     public void instrucoes() {
-        System.out.println(" Bem-vindo ao Island Pirates! \r\n" + //
-                "\r\n" + //
-                "Explore as ilhas em busca de tesouros, mas cuidado com as armadilhas!\r\n" + //
-                "\r\n" + //
-                "Você possui 8 tentativas e deve terminar o jogo com pontuação positiva.\r\n" + //
-                "\r\n" + //
-                " Tesouros:\r\n" + //
-                " OURO -> +10 pontos\r\n" + //
-                " RUBI -> +15 pontos\r\n" + //
-                " DIAMANTE -> +20 pontos\r\n" + //
-                "\r\n" + //
-                " Armadilhas:\r\n" + //
-                " BURACO -> -5 pontos\r\n" + //
-                " ESPINHOS -> -7 pontos\r\n" + //
-                " COBRA -> -10 pontos\r\n" + //
-                "\r\n" + //
-                " VAZIO -> 0 pontos\r\n" + //
-                "\r\n" + //
-                "Boa sorte, pirata! \r\n" + //
-                "");
-    }
+        System.out.println("       +======================================+\n" + //
+                        "        |          ISLAND PIRATES              |\n" + //
+                        "        +======================================+\n" + //
+                        "\n" + //
+                        "        Explore ilhas em busca de tesouros,\n" + //
+                        "        mas cuidado com as armadilhas!\n" + //
+                        "\n" + //
+                        "        Voce possui 8 tentativas e deve terminar\n" + //
+                        "        o jogo com pontuacao positiva.\n" + //
+                        "\n" + //
+                        "        TESOUROS:\n" + //
+                        "           OURO     -> +10 pontos\n" + //
+                        "           RUBI     -> +15 pontos\n" + //
+                        "           DIAMANTE -> +20 pontos\n" + //
+                        "\n" + //
+                        "        ARMADILHAS:\n" + //
+                        "           BURACO   ->  -5 pontos\n" + //
+                        "           ESPINHOS ->  -7 pontos\n" + //
+                        "           COBRA    -> -10 pontos\n" + //
+                        "\n" + //
+                        "        VAZIO      ->   0 pontos\n" + //
+                        "\n" + //
+                        "        +======================================+\n" + //
+                        "             Boa sorte, pirata!\n" + //
+                        "        +======================================+");
+}
+    
     
     public void inicializarIlha() {
         Random rand = new Random();
@@ -57,6 +64,7 @@ public class Jogo {
         }
     }
     
+       
     public void mostrarMapa() {
         for (int i = 0; i < ilha.length; i++) {
             if (explorador[i]) {
@@ -66,7 +74,6 @@ public class Jogo {
             }
         }
     }
-
     
     public void mostrarStatus(int pontuacao, int tentativas, int tesourosEncontrados, int armadilhasEncontradas,
             int vaziosEncontrados) {
@@ -76,7 +83,5 @@ public class Jogo {
         System.out.println("Tesouros encontrados: " + tesourosEncontrados);
         System.out.println("Armadilhas encontradas: " + armadilhasEncontradas);
         System.out.println("Posições vazias exploradas: " + vaziosEncontrados);
-
     }
-
 }
