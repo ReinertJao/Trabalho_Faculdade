@@ -6,7 +6,10 @@ public class Principal {
         jogo.inicializarIlha();
         Scanner ler = new Scanner(System.in);
         int ale;
+        
 
+             
+        
         do {
 
             System.out.println("╔════════════════════════════╗");
@@ -34,12 +37,12 @@ public class Principal {
                     jogo.mostrarStatus();
                     break;
                 case 5:
-                    System.out.println("Sistema encerrado.");
+                    System.out.println("Jogo encerrado.");
                     break;
                 default:
                     System.out.println("Opção inválida.");
             }
-        } while (ale != 5);
+        } while (ale != 5 && jogo.tentativas > 0);
         ler.close();
     }
     public static void main(String[] args) {
