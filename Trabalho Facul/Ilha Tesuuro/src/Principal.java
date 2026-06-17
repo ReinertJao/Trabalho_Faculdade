@@ -6,10 +6,7 @@ public class Principal {
         jogo.inicializarIlha();
         Scanner ler = new Scanner(System.in);
         int ale;
-        
 
-             
-        
         do {
 
             System.out.println("╔════════════════════════════╗");
@@ -43,8 +40,27 @@ public class Principal {
                     System.out.println("Opção inválida.");
             }
         } while (ale != 5 && jogo.tentativas > 0);
+
+        jogo.mostrarStatus();
+
+        if (jogo.pontuacao > 0) {
+            System.out.println("\nVocê Ganhou!");
+        } else {
+            System.out.println("\nVocê perdeu. Tente novamente!");
+        }
+
+        // Aqui ele vai inicializar o jogo novamente
+        System.out.println("\nDeseja jogar novamente? (S/N)");
+        String resposta = ler.next().toUpperCase();
+
+        if (resposta.equals("S")) {
+            jogo.reiniciarJogo();
+        } else {
+            System.out.println("Jogo encerrado.");
+        }
         ler.close();
     }
+
     public static void main(String[] args) {
         new Principal();
     }

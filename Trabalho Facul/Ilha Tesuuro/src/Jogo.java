@@ -25,6 +25,7 @@ public class Jogo {
     int tesourosEncontrados = 0;
     int armadilhasEncontradas = 0;
     int vaziosEncontrados = 0;
+    String respota;
 
     // opção 1 do Swith Case, Mostra a instrução do Jogo
     public void instrucoes() {
@@ -63,6 +64,21 @@ public class Jogo {
         }
     }
 
+    public void reiniciarJogo() {
+        pontuacao = 0;
+        tentativas = 8;
+        tesourosEncontrados = 0;
+        armadilhasEncontradas = 0;
+        vaziosEncontrados = 0;
+
+        for (int i = 0; i < explorador.length; i++) {
+            explorador[i] = false;
+
+        }
+        inicializarIlha();
+        System.out.println("Jogo Reiniciado");
+    }
+
     // Vai mostrar o mapa de 1 a 15
     public void mostrarMapa() {
         for (int i = 0; i < ilha.length; i++) {
@@ -86,45 +102,43 @@ public class Jogo {
 
     // vai executar o game
     public void jogar() {
-        
 
-            System.out.print("Escolha uma posição (1 a 15): ");
-            int pos = ler.nextInt() - 1;
-            if (pos < 0 || pos >= ilha.length) {
-                System.out.println("Posição inválida!");
-                return;
-            }
-            if (explorador[pos]) {
-                System.out.println("Posição já explorada!");
-                return;
-            }
-            explorador[pos] = true;
-            tentativas--;
-            String item = ilha[pos];
+        System.out.print("Escolha uma posição (1 a 15): ");
+        int pos = ler.nextInt() - 1;
+        if (pos < 0 || pos >= ilha.length) {
+            System.out.println("Posição inválida!");
+            return;
+        }
+        if (explorador[pos]) {
+            System.out.println("Posição já explorada!");
+            return;
+        }
+        explorador[pos] = true;
+        tentativas--;
+        String item = ilha[pos];
 
-            // Atualiza a pontuação do jogo
-            if (item.equals("OURO")) {
-                pontuacao += 10;
-                tesourosEncontrados++;
-            } else if (item.equals("DIAMENTE")) {
-                pontuacao += 20;
-                tesourosEncontrados++;
-            } else if (item.equals("RUBI")) {
-                pontuacao += 15;
-                tesourosEncontrados++;
-            } else if (item.equals("BURACO")) {
-                pontuacao -= 5;
-                armadilhasEncontradas++;
-            } else if (item.equals("COBRA")) {
-                pontuacao -= 10;
-                armadilhasEncontradas++;
-            } else if (item.equals("ESPINHO")) {
-                pontuacao -= 7;
-                armadilhasEncontradas++;
-            } else if (item.equals("VAZIO")) {
-                vaziosEncontrados++;
-            }
-            System.out.println("Você encontrou: " + item);
-       
+        // Atualiza a pontuação do jogo
+        if (item.equals("OURO")) {
+            pontuacao += 10;
+            tesourosEncontrados++;
+        } else if (item.equals("DIAMENTE")) {
+            pontuacao += 20;
+            tesourosEncontrados++;
+        } else if (item.equals("RUBI")) {
+            pontuacao += 15;
+            tesourosEncontrados++;
+        } else if (item.equals("BURACO")) {
+            pontuacao -= 5;
+            armadilhasEncontradas++;
+        } else if (item.equals("COBRA")) {
+            pontuacao -= 10;
+            armadilhasEncontradas++;
+        } else if (item.equals("ESPINHO")) {
+            pontuacao -= 7;
+            armadilhasEncontradas++;
+        } else if (item.equals("VAZIO")) {
+            vaziosEncontrados++;
+        }
+        System.out.println("Você encontrou: " + item);
     }
 }
