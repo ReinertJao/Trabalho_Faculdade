@@ -1,34 +1,38 @@
 import java.util.Scanner;
-
 public class Principal {
-    public Principal() {
-        Jogo jogo = new Jogo();
-        jogo.inicializarIlha();
+    public static void main(String[] args){
         Scanner ler = new Scanner(System.in);
-        int ale;
-
-        do {
-
-            System.out.println("╔════════════════════════════╗");
-            System.out.println("║     ILHA DOS TESOUROS      ║");
-            System.out.println("╚════════════════════════════╝");
+        Jogo jogo = new Jogo();
+        jogo.iniciar();
+        int opcao;
+        do{
+            System.out.println("\n===== ILHA DOS TESOUROS =====");
             System.out.println("1 - Mostrar instruções");
             System.out.println("2 - Mostrar mapa");
             System.out.println("3 - Jogar");
             System.out.println("4 - Mostrar status");
             System.out.println("5 - Sair");
-
-            ale = ler.nextInt();
-
-            switch (ale) {
+            opcao = ler.nextInt();
+            switch(opcao){
                 case 1:
-                    jogo.instrucoes();
+                    jogo.mostrarInstrucoes();
                     break;
                 case 2:
                     jogo.mostrarMapa();
                     break;
                 case 3:
                     jogo.jogar();
+                    if(jogo.fimDeJogo()){
+                        System.out.println("Fim de jogo!");
+                        jogo.mostrarStatus();
+                        System.out.println("Deseja jogar novamente? S/N");
+                        String resposta = ler.next();
+                        if(resposta.equals("S") || resposta.equals("s")){
+                            jogo.iniciar();
+                        }else{
+                            opcao = 5;
+                        }
+                    }
                     break;
                 case 4:
                     jogo.mostrarStatus();
@@ -39,29 +43,7 @@ public class Principal {
                 default:
                     System.out.println("Opção inválida.");
             }
-        } while (ale != 5 && jogo.tentativas > 0);
-
-        jogo.mostrarStatus();
-
-        if (jogo.pontuacao > 0) {
-            System.out.println("\nVocê Ganhou!");
-        } else {
-            System.out.println("\nVocê perdeu. Tente novamente!");
-        }
-
-        // Aqui ele vai inicializar o jogo novamente
-        System.out.println("\nDeseja jogar novamente? (S/N)");
-        String resposta = ler.next().toUpperCase();
-
-        if (resposta.equals("S")) {
-            jogo.reiniciarJogo();
-        } else {
-            System.out.println("Jogo encerrado.");
-        }
+        }while(opcao != 5);
         ler.close();
-    }
-
-    public static void main(String[] args) {
-        new Principal();
     }
 }
